@@ -1,0 +1,34 @@
+<div class="header">
+  <h1>
+    {{title}}, hola {{nickname}}
+  </h1>
+  <form  id="nicknameform" [formGroup]="nicknameArr" >
+    <input id="newnickname"  type="text"  formControlName="nick" placeholder="Change Your Nick"/>
+    <button id="btn_nickname" (click)="onsubmitNickname()">Send Message</button>
+  </form>
+
+</div>
+
+<div id="chat">
+
+  <div id="usersContainer">
+    <h3>Usuarios</h3>
+    <div  id="users" *ngFor="let user of usersInRoom">
+      <p id="user">{{user}}</p>
+    </div>
+  </div>
+    <div class="wrapper">
+      <div id="chatContainer"  *ngFor="let msg of messagesChat">
+        <span class="useremit">{{msg.newmsj.author}} :</span>
+        <span class="msgemit">{{ msg.newmsj.msg}} </span>
+      </div>
+    </div>
+
+  </div>
+<form [formGroup]="arraymessages" >
+  <div id="submitControls" >
+
+    <input id="msg"  type="text"  formControlName="msgs" placeholder="Send Message"/>
+    <button id="btnsend" (click)="onsubmit()">Send Message</button>
+  </div>
+</form>
